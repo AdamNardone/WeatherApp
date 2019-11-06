@@ -5,23 +5,38 @@ document
     if (event.keyCode === 13) {
       var searchTerm = document.getElementById("search-term").value;
 
-      tt.services
-        .geocode({
-          key: "77txHOGsPaFeZAvQAyV9k7bQ1EB8BGDs",
-          query: searchTerm,
-          bestResult: true
+      // tt.services
+      //   .geocode({
+      //     key: "77txHOGsPaFeZAvQAyV9k7bQ1EB8BGDs",
+      //     query: searchTerm,
+      //     bestResult: true
+      //   })
+      //   .go()
+      //   .then(callbackFn);
+
+      fetch("/location", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          query: searchTerm
         })
-        .go()
-        .then(callbackFn);
+      })
+        .then(res => res.json())
+        .then(data => {
+          callbackFn(data);
+        });
     }
   });
 
 function callbackFn(result) {
   console.log(result);
 
-  const place = result.address.freeformAddress;
-  const latitude = result.position.lat;
-  const longitude = result.position.lng;
+  const place = result[0].address.freeformAddress;
+  const latitude = result[0].position.lat;
+  const longitude = result[0].position.lon;
 
   console.log(longitude, latitude);
 

@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const DARKSKY_API_KEY = process.env.DARKSKY_API_KEY;
+const TOMTOM_API_KEY = process.env.TOMTOM_API_KEY;
 const axios = require("axios");
 const express = require("express");
 const app = express();
@@ -16,6 +17,14 @@ app.post("/weather", (req, res) => {
     url: url,
     responseType: "json"
   }).then(data => res.json(data.data.currently));
+});
+
+app.post("/location", (req, res) => {
+  const url = `https://api.tomtom.com/search/2/geocode/${req.body.query}.JSON?key=${TOMTOM_API_KEY}&limit=1`;
+  axios({
+    url: url,
+    responseType: "json"
+  }).then(data => res.json(data.data.results));
 });
 
 app.listen(3000, () => {
