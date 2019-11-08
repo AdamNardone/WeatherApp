@@ -1,3 +1,6 @@
+document.getElementById("todays-forecast").style.display = "none";
+document.getElementById("daily-forecast").style.display = "none";
+
 document
   .getElementById("search-term")
   .addEventListener("keyup", function(event) {
@@ -28,6 +31,9 @@ document
         .then(data => {
           callbackFn(data);
         });
+
+      document.getElementById("todays-forecast").style.display = "flex";
+      document.getElementById("daily-forecast").style.display = "flex";
     }
   });
 
@@ -60,18 +66,37 @@ function callbackFn(result) {
 const icon = new Skycons({ color: "#222" });
 const locationElement = document.querySelector("[data-location]");
 const statusElement = document.querySelector("[data-status]");
-const temperatureElement = document.querySelector("[data-temperature]");
-const precipitationElement = document.querySelector("[data-precipitation]");
-const windElement = document.querySelector("[data-wind]");
-icon.set("icon", "clear-day");
-icon.play();
+const temperatureElement = document.querySelectorAll("[data-temperature]");
+const precipitationElement = document.querySelectorAll("[data-precipitation]");
+const windElement = document.querySelectorAll("[data-wind]");
+const CurrentDayTemperatureElement = document.querySelector(
+  "[current-day-data-temperature]"
+);
+const CurrentDayPrecipitationElement = document.querySelector(
+  "[current-day-data-precipitation]"
+);
+const CurrentDayWindElement = document.querySelector("[current-day-data-wind]");
 
 function setWeatherData(data, place) {
+  console.log(data);
   locationElement.textContent = place;
-  statusElement.textContent = data.summary;
-  temperatureElement.textContent = data.temperature;
-  precipitationElement.textContent = `${data.precipProbability * 100}%`;
-  windElement.textContent = data.windSpeed;
-  icon.set("icon", data.icon);
-  icon.play();
+  statusElement.textContent = data.currently.summary;
+  icon.set(`icon-current`, data.currently.icon);
+
+  CurrentDayTemperatureElement.textContent = data.currently.temperature;
+  CurrentDayPrecipitationElement.textContent = `${Math.round(
+    data.currently.precipProbability * 100
+  )}%`;
+  CurrentDayWindElement.textContent = data.currently.windSpeed;
+
+  for (var i = 0; i < 7; i++) {
+    icon.set(`icon${i + 1}`, data.daily.data[i + 1].icon);
+    icon.play();
+
+    temperatureElement[i].textContent = data.daily.data[i + 1].temperatureHigh;
+    precipitationElement[i].textContent = `${Math.round(
+      data.daily.data[i + 1].precipProbability * 100
+    )}%`;
+    windElement[i].textContent = data.daily.data[i + 1].windSpeed;
+  }
 }

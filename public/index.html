@@ -17,16 +17,47 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <div class="icon-container">
-          <canvas id="icon" width="100" height="100"></canvas>
+    <div class="current-day-content">
+      <div class="general-information">
+        <div class="status" data-status>Enter A Location</div>
+        <div class="location" data-location>To Find The Weather</div>
+      </div>
+      <div class="city-search-container">
+        <input
+          type="text"
+          class="city-search"
+          id="search-term"
+          placeholder="Enter Location"
+        />
+      </div>
+      <div class="current-day-data-wrapper" id="todays-forecast">
+        <h1>Current Weather</h1>
+        <div id="container">
+          <div class="icon-container">
+            <canvas id="icon-current" width="100" height="100"></canvas>
+          </div>
+          <div class="current-day-detail-section">
+            <div class="detail">
+              <div class="title">Wind</div>
+              <div class="value" current-day-data-wind></div>
+            </div>
+            <div class="detail">
+              <div class="title">Temperature</div>
+              <div class="value" current-day-data-temperature></div>
+            </div>
+            <div class="detail">
+              <div class="title">Precipitation</div>
+              <div class="value" current-day-data-precipitation></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="content">
-        <div class="general-information">
-          <div class="status" data-status>Enter A Location</div>
-          <div class="location" data-location>To Find The Weather</div>
+    </div>
+
+    <div class="card-wrapper" id="daily-forecast">
+      <div class="card">
+        <div class="icon-container">
+          <canvas id="icon1" width="100" height="100"></canvas>
         </div>
         <div class="detail-section">
           <div class="detail">
@@ -42,16 +73,123 @@
             <div class="value" data-precipitation></div>
           </div>
         </div>
-        <div class="city-search-container">
-          <input
-            type="text"
-            class="city-search"
-            id="search-term"
-            placeholder="Enter Location"
-          />
+      </div>
+      <div class="card">
+        <div class="icon-container">
+          <canvas id="icon2" width="100" height="100"></canvas>
+        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" data-wind></div>
+          </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" data-temperature></div>
+          </div>
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" data-precipitation></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-container">
+          <canvas id="icon3" width="100" height="100"></canvas>
+        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" data-wind></div>
+          </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" data-temperature></div>
+          </div>
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" data-precipitation></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-container">
+          <canvas id="icon4" width="100" height="100"></canvas>
+        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" data-wind></div>
+          </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" data-temperature></div>
+          </div>
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" data-precipitation></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-container">
+          <canvas id="icon5" width="100" height="100"></canvas>
+        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" data-wind></div>
+          </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" data-temperature></div>
+          </div>
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" data-precipitation></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-container">
+          <canvas id="icon6" width="100" height="100"></canvas>
+        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" data-wind></div>
+          </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" data-temperature></div>
+          </div>
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" data-precipitation></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-container">
+          <canvas id="icon7" width="100" height="100"></canvas>
+        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" data-wind></div>
+          </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" data-temperature></div>
+          </div>
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" data-precipitation></div>
+          </div>
         </div>
       </div>
     </div>
+
     <a href="https://darksky.net/poweredby" class="darksky-logo"
       >Powered By DarkSky</a
     >
