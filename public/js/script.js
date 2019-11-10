@@ -32,7 +32,7 @@ document
           callbackFn(data);
         });
 
-      document.getElementById("todays-forecast").style.display = "flex";
+      document.getElementById("todays-forecast").style.display = "grid";
       document.getElementById("daily-forecast").style.display = "flex";
     }
   });
@@ -60,6 +60,7 @@ function callbackFn(result) {
     .then(res => res.json())
     .then(data => {
       setWeatherData(data, place);
+      setDayHeaders(today);
     });
 }
 
@@ -98,5 +99,27 @@ function setWeatherData(data, place) {
       data.daily.data[i + 1].precipProbability * 100
     )}%`;
     windElement[i].textContent = data.daily.data[i + 1].windSpeed;
+  }
+}
+
+const day = document.querySelectorAll("[week-day]");
+
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
+const today = new Date();
+
+function setDayHeaders(date) {
+  for (var i = 0; i < 7; i++) {
+    date.setDate(today.getDate() + 1);
+    console.log(date.getDay());
+    day[i].textContent = days[date.getDay()];
   }
 }

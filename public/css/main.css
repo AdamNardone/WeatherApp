@@ -1,9 +1,37 @@
 body {
-  background: -webkit-gradient(linear, left top, left bottom, from(#2f96a3), to(#303e8f));
-  background: linear-gradient(#2f96a3, #303e8f);
+  background: white;
   height: 100vh;
   margin: 0;
   padding: 0;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 20px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -ms-grid-columns: 1% 40% auto 1%;
+      grid-template-columns: 1% 40% auto 1%;
+  -ms-grid-rows: 75px 500px auto 5%;
+      grid-template-rows: 75px 500px auto 5%;
+      grid-template-areas: "header header header header" "margin-left search weather margin-right" "margin-left forecast forecast margin-right" "margin-bottom margin-bottom margin-bottom margin-bottom";
+}
+
+.darksky {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+  background-color: #989898;
+}
+
+.darksky .darksky-logo {
+  float: right;
+}
+
+.current-day-content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: search;
+  background-color: #989898;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,32 +41,51 @@ body {
           flex-direction: column;
 }
 
-.current-day-content {
-  margin: 50px;
+.current-day-content .general-information {
+  margin: 25px;
 }
 
-.status {
+.current-day-content .general-information .status {
   font-size: 3rem;
   font-weight: bold;
 }
 
-.location {
+.current-day-content .general-information .location {
   font-size: 2rem;
   font-weight: normal;
   margin-top: 10px;
 }
 
+.current-day-content .city-search-container {
+  margin: 25px;
+}
+
 .current-day-data-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  background-color: #989898;
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: weather;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% auto;
+      grid-template-columns: 25% auto;
+  -ms-grid-rows: 75px auto auto;
+      grid-template-rows: 75px auto auto;
+      grid-template-areas: "header header " "current hourly" "overview hourly";
+}
+
+.current-day-data-wrapper > h1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+  text-align: center;
 }
 
 .current-day-data-wrapper #container {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: current;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,27 +93,55 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.current-day-data-wrapper #header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
 }
 
 .card-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: forecast;
+  background-color: #989898;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  margin-bottom: 15px;
 }
 
 .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
   width: 200px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  background-color: #989898;
+  margin-bottom: 15px;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 75px auto;
+      grid-template-rows: 75px auto;
+      grid-template-areas: "header header" "icon detail";
+}
+
+.card > h2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+  text-align: center;
+}
+
+.card .icon-container {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: icon;
+}
+
+.card .detail-section {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: detail;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,49 +1,111 @@
 @import "config";
 
 body {
-  background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+  background: white;
   height: 100vh;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  row-gap: 20px;
+  column-gap: 20px;
+  grid-template-columns: 1% 40% auto 1%;
+  grid-template-rows: 75px 500px auto 5%;
+  grid-template-areas:
+    "header header header header"
+    "margin-left search weather margin-right"
+    "margin-left forecast forecast margin-right"
+    "margin-bottom margin-bottom margin-bottom margin-bottom";
+}
+
+.darksky {
+  grid-area: header;
+  background-color: $secondary-color;
+
+  .darksky-logo {
+    float: right;
+  }
 }
 
 .current-day-content {
-  margin: 50px;
-}
-
-.status {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.location {
-  font-size: 2rem;
-  font-weight: normal;
-  margin-top: 10px;
-}
-
-.current-day-data-wrapper {
+  grid-area: search;
+  background-color: $secondary-color;
   display: flex;
   flex-direction: column;
 
+  .general-information {
+    margin: 25px;
+
+    .status {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .location {
+      font-size: 2rem;
+      font-weight: normal;
+      margin-top: 10px;
+    }
+  }
+
+  .city-search-container {
+    margin: 25px;
+  }
+}
+
+.current-day-data-wrapper {
+  background-color: $secondary-color;
+  grid-area: weather;
+  display: grid;
+  grid-template-columns: 25% auto;
+  grid-template-rows: 75px auto auto;
+  grid-template-areas:
+    "header header "
+    "current hourly"
+    "overview hourly";
+
+  > h1 {
+    grid-area: header;
+    text-align: center;
+  }
+
   #container {
+    grid-area: current;
     display: flex;
     flex-direction: row;
   }
+  #header {
+    grid-area: header;
+  }
 }
 .card-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
+  grid-area: forecast;
+  background-color: $secondary-color;
   justify-content: space-around;
+  margin-bottom: 15px;
 }
 
 .card {
-  display: flex;
+  display: grid;
   width: 200px;
-  flex-direction: row;
-  background-color: $secondary-color;
+  margin-bottom: 15px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 75px auto;
+  grid-template-areas:
+    "header header"
+    "icon detail";
+
+  > h2 {
+    grid-area: header;
+    text-align: center;
+  }
+
+  .icon-container {
+    grid-area: icon;
+  }
+
+  .detail-section {
+    grid-area: detail;
+  }
 }
 
 @import "responsive";

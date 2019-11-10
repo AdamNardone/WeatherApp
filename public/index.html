@@ -17,6 +17,12 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="darksky">
+      <a href="https://darksky.net/poweredby" class="darksky-logo"
+        >Powered By DarkSky</a
+      >
+    </div>
+
     <div class="current-day-content">
       <div class="general-information">
         <div class="status" data-status>Enter A Location</div>
@@ -30,25 +36,26 @@
           placeholder="Enter Location"
         />
       </div>
-      <div class="current-day-data-wrapper" id="todays-forecast">
-        <h1>Current Weather</h1>
-        <div id="container">
-          <div class="icon-container">
-            <canvas id="icon-current" width="100" height="100"></canvas>
+    </div>
+
+    <div class="current-day-data-wrapper" id="todays-forecast">
+      <h1 id="header">Current Weather</h1>
+      <div id="container">
+        <div class="icon-container">
+          <canvas id="icon-current" width="100" height="100"></canvas>
+        </div>
+        <div class="current-day-detail-section">
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" current-day-data-wind></div>
           </div>
-          <div class="current-day-detail-section">
-            <div class="detail">
-              <div class="title">Wind</div>
-              <div class="value" current-day-data-wind></div>
-            </div>
-            <div class="detail">
-              <div class="title">Temperature</div>
-              <div class="value" current-day-data-temperature></div>
-            </div>
-            <div class="detail">
-              <div class="title">Precipitation</div>
-              <div class="value" current-day-data-precipitation></div>
-            </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" current-day-data-temperature></div>
+          </div>
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" current-day-data-precipitation></div>
           </div>
         </div>
       </div>
@@ -56,6 +63,7 @@
 
     <div class="card-wrapper" id="daily-forecast">
       <div class="card">
+        <h2 class="day" week-day></h2>
         <div class="icon-container">
           <canvas id="icon1" width="100" height="100"></canvas>
         </div>
@@ -75,6 +83,7 @@
         </div>
       </div>
       <div class="card">
+        <h2 class="day" week-day></h2>
         <div class="icon-container">
           <canvas id="icon2" width="100" height="100"></canvas>
         </div>
@@ -94,6 +103,7 @@
         </div>
       </div>
       <div class="card">
+        <h2 class="day" week-day></h2>
         <div class="icon-container">
           <canvas id="icon3" width="100" height="100"></canvas>
         </div>
@@ -113,6 +123,7 @@
         </div>
       </div>
       <div class="card">
+        <h2 class="day" week-day></h2>
         <div class="icon-container">
           <canvas id="icon4" width="100" height="100"></canvas>
         </div>
@@ -132,6 +143,7 @@
         </div>
       </div>
       <div class="card">
+        <h2 class="day" week-day></h2>
         <div class="icon-container">
           <canvas id="icon5" width="100" height="100"></canvas>
         </div>
@@ -151,6 +163,7 @@
         </div>
       </div>
       <div class="card">
+        <h2 class="day" week-day></h2>
         <div class="icon-container">
           <canvas id="icon6" width="100" height="100"></canvas>
         </div>
@@ -170,6 +183,7 @@
         </div>
       </div>
       <div class="card">
+        <h2 class="day" week-day></h2>
         <div class="icon-container">
           <canvas id="icon7" width="100" height="100"></canvas>
         </div>
@@ -189,9 +203,5 @@
         </div>
       </div>
     </div>
-
-    <a href="https://darksky.net/poweredby" class="darksky-logo"
-      >Powered By DarkSky</a
-    >
   </body>
 </html>
