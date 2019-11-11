@@ -86,8 +86,8 @@ function callbackFn(result) {
     .then(res => res.json())
     .then(data => {
       setWeatherData(data, place);
-      setDayHeaders(today);
-      setHourHeaders(today);
+      setDayHeaders();
+      setHourHeaders();
     });
 }
 
@@ -179,19 +179,19 @@ const hours = [
   "11:00 PM"
 ];
 
-const today = new Date();
-
-function setDayHeaders(date) {
+function setDayHeaders() {
+  var date = new Date();
   for (var i = 0; i < 7; i++) {
-    date.setDate(today.getDate() + 1);
+    date.setDate(date.getDate() + 1);
     day[i].textContent = days[date.getDay()];
   }
 }
 
-function setHourHeaders(date) {
+function setHourHeaders() {
+  var date = new Date();
   for (var i = 0; i < 24; i++) {
     hour[i].textContent = hours[date.getHours()];
     hourDay[i].textContent = daysShort[date.getDay()];
-    date.setHours(today.getHours() + 1);
+    date.setHours(date.getHours() + 1);
   }
 }
