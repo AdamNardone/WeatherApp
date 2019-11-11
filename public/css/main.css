@@ -65,49 +65,61 @@ body {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: weather;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 25% auto;
-      grid-template-columns: 25% auto;
-  -ms-grid-rows: 75px auto auto;
-      grid-template-rows: 75px auto auto;
-      grid-template-areas: "header header " "current hourly" "overview hourly";
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .current-day-data-wrapper > h1 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: header;
   text-align: center;
 }
 
-.current-day-data-wrapper #container {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: current;
+.current-day-data-wrapper .btn-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.current-day-data-wrapper .hourly-wrapper {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 2;
-  grid-area: hourly;
+.current-day-data-wrapper .btn-wrapper .side-bar {
+  width: 100px;
+  margin-top: 140px;
+}
+
+.current-day-data-wrapper .btn-wrapper #prev-btn {
+  margin-top: 100px;
+  margin-right: 50px;
+}
+
+.current-day-data-wrapper .btn-wrapper #next-btn {
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.current-day-data-wrapper .btn-wrapper .hourly-wrapper {
   height: 400px;
   width: 600px;
   overflow: hidden;
 }
 
-.current-day-data-wrapper .hourly-wrapper .hourly-slide {
+.current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide {
   width: 2400px;
 }
 
-.current-day-data-wrapper .hourly-wrapper .hourly-slide .hour {
+.current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour {
   float: left;
+  text-align: center;
   width: 100px;
+}
+
+.current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour .value {
+  margin: 16px 0px;
 }
 
 .card-wrapper {

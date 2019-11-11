@@ -1,29 +1,3 @@
-const hourlySlide = document.querySelector(".hourly-slide");
-
-const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
-
-let counter = 0;
-const size = document.querySelector(".hourly-wrapper").clientWidth;
-
-prevBtn.addEventListener("click", () => {
-  if (counter <= 0) return;
-
-  hourlySlide.style.transition = "transform 0.4s ease-in-out";
-  counter--;
-  hourlySlide.style.transform = "translateX(" + -size * counter + "px)";
-  console.log(size);
-});
-
-nextBtn.addEventListener("click", () => {
-  if (counter >= 3) return;
-
-  hourlySlide.style.transition = "transform 0.4s ease-in-out";
-  counter++;
-  hourlySlide.style.transform = "translateX(" + -size * counter + "px)";
-  console.log(size);
-});
-
 document.getElementById("todays-forecast").style.display = "none";
 document.getElementById("daily-forecast").style.display = "none";
 
@@ -88,6 +62,7 @@ function callbackFn(result) {
       setWeatherData(data, place);
       setDayHeaders();
       setHourHeaders();
+      setSlide();
     });
 }
 
@@ -97,6 +72,7 @@ const statusElement = document.querySelector("[data-status]");
 const temperatureElement = document.querySelectorAll("[data-temperature]");
 const precipitationElement = document.querySelectorAll("[data-precipitation]");
 const windElement = document.querySelectorAll("[data-wind]");
+
 const CurrentDayTemperatureElement = document.querySelector(
   "[current-day-data-temperature]"
 );
@@ -105,10 +81,21 @@ const CurrentDayPrecipitationElement = document.querySelector(
 );
 const CurrentDayWindElement = document.querySelector("[current-day-data-wind]");
 
+const hourlyTemperatureElement = document.querySelectorAll(
+  "[hour-data-temperature]"
+);
+const hourlyApparentTemperatureElement = document.querySelectorAll(
+  "[hour-data-apparent-temperature]"
+);
+const hourlyPrecipitationElement = document.querySelectorAll(
+  "[hour-data-precipitation]"
+);
+const hourlySummaryElement = document.querySelectorAll("[hour-data-summary]");
+
 function setWeatherData(data, place) {
   console.log(data);
   locationElement.textContent = place;
-  statusElement.textContent = data.currently.summary;
+  statusElement.textContent = data.daily.data[0].summary;
   icon.set(`icon-current`, data.currently.icon);
 
   CurrentDayTemperatureElement.textContent = data.currently.temperature;
@@ -117,7 +104,7 @@ function setWeatherData(data, place) {
   )}%`;
   CurrentDayWindElement.textContent = data.currently.windSpeed;
 
-  //daily weather dat
+  //daily weather data
   for (var i = 0; i < 7; i++) {
     icon.set(`icon${i + 1}`, data.daily.data[i + 1].icon);
     icon.play();
@@ -133,6 +120,14 @@ function setWeatherData(data, place) {
   for (var i = 0; i < 24; i++) {
     icon.set(`icon-hour-${i}`, data.hourly.data[i].icon);
     icon.play();
+
+    hourlyTemperatureElement[i].textContent = data.hourly.data[i].temperature;
+    hourlyApparentTemperatureElement[i].textContent =
+      data.hourly.data[i].apparentTemperature;
+    hourlyPrecipitationElement[i].textContent = `${Math.round(
+      data.hourly.data[i].precipProbability * 100
+    )}%`;
+    hourlySummaryElement[i].textContent = data.hourly.data[i].summary;
   }
 }
 
@@ -194,4 +189,32 @@ function setHourHeaders() {
     hourDay[i].textContent = daysShort[date.getDay()];
     date.setHours(date.getHours() + 1);
   }
+}
+
+function setSlide() {
+  const hourlySlide = document.querySelector(".hourly-slide");
+
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+
+  let counter = 0;
+  const size = document.querySelector(".hourly-wrapper").clientWidth;
+
+  prevBtn.addEventListener("click", () => {
+    if (counter <= 0) return;
+
+    hourlySlide.style.transition = "transform 0.4s ease-in-out";
+    counter--;
+    hourlySlide.style.transform = "translateX(" + -size * counter + "px)";
+    console.log(size);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (counter >= 3) return;
+
+    hourlySlide.style.transition = "transform 0.4s ease-in-out";
+    counter++;
+    hourlySlide.style.transform = "translateX(" + -size * counter + "px)";
+    console.log(size);
+  });
 }
