@@ -39,7 +39,7 @@
     </div>
 
     <div class="current-day-data-wrapper" id="todays-forecast">
-      <h1 id="header">Current Weather</h1>
+      <h1>Current Weather</h1>
       <div id="container">
         <div class="icon-container">
           <canvas id="icon-current" width="100" height="100"></canvas>
@@ -57,6 +57,421 @@
             <div class="title">Precipitation</div>
             <div class="value" current-day-data-precipitation></div>
           </div>
+        </div>
+      </div>
+
+      <div class="hourly-wrapper">
+        <button id="prev-btn">Prev</button>
+        <button id="next-btn">Next</button>
+        <div class="hourly-slide">
+            <div class="hour">
+                <h2 hour-day></h2>
+                <div class="time-stamp" hour-time></div>
+                <div class="icon-container">
+                  <canvas id="icon-hour-0" width="50" height="50"></canvas>
+                </div>
+                <div class="detail-section">
+                  <div class="detail">
+                    <div class="title">Temperature</div>
+                    <div class="value" hour-data-temperature></div>
+                  </div>
+                  <div class="detail">
+                    <div class="title">Precipitation</div>
+                    <div class="value" hour-data-precipitation></div>
+                  </div>
+                </div>
+              </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-1" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-2" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-3" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-4" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-5" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-6" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-7" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-8" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-9" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-10" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-11" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-12" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-13" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-14" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-15" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-16" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-17" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-18" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-19" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+            <h2 hour-day></h2>
+            <div class="time-stamp" hour-time></div>
+            <div class="icon-container">
+              <canvas id="icon-hour-20" width="50" height="50"></canvas>
+            </div>
+            <div class="detail-section">
+              <div class="detail">
+                <div class="title">Temperature</div>
+                <div class="value" hour-data-temperature></div>
+              </div>
+              <div class="detail">
+                <div class="title">Precipitation</div>
+                <div class="value" hour-data-precipitation></div>
+              </div>
+            </div>
+          </div>
+          <div class="hour">
+              <h2 hour-day></h2>
+              <div class="time-stamp" hour-time></div>
+              <div class="icon-container">
+                <canvas id="icon-hour-21" width="50" height="50"></canvas>
+              </div>
+              <div class="detail-section">
+                <div class="detail">
+                  <div class="title">Temperature</div>
+                  <div class="value" hour-data-temperature></div>
+                </div>
+                <div class="detail">
+                  <div class="title">Precipitation</div>
+                  <div class="value" hour-data-precipitation></div>
+                </div>
+              </div>
+            </div>
+            <div class="hour">
+              <h2 hour-day></h2>
+              <div class="time-stamp" hour-time></div>
+              <div class="icon-container">
+                <canvas id="icon-hour-22" width="50" height="50"></canvas>
+              </div>
+              <div class="detail-section">
+                <div class="detail">
+                  <div class="title">Temperature</div>
+                  <div class="value" hour-data-temperature></div>
+                </div>
+                <div class="detail">
+                  <div class="title">Precipitation</div>
+                  <div class="value" hour-data-precipitation></div>
+                </div>
+              </div>
+            </div>
+            <div class="hour">
+              <h2 hour-day></h2>
+              <div class="time-stamp" hour-time></div>
+              <div class="icon-container">
+                <canvas id="icon-hour-23" width="50" height="50"></canvas>
+              </div>
+              <div class="detail-section">
+                <div class="detail">
+                  <div class="title">Temperature</div>
+                  <div class="value" hour-data-temperature></div>
+                </div>
+                <div class="detail">
+                  <div class="title">Precipitation</div>
+                  <div class="value" hour-data-precipitation></div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>

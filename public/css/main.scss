@@ -71,12 +71,24 @@ body {
   #container {
     grid-area: current;
     display: flex;
-    flex-direction: row;
   }
-  #header {
-    grid-area: header;
+
+  .hourly-wrapper {
+    grid-area: hourly;
+    height: 400px;
+    width: 600px;
+    overflow: hidden;
+
+    .hourly-slide {
+      width: 2400px;
+      .hour {
+        float: left;
+        width: 100px;
+      }
+    }
   }
 }
+
 .card-wrapper {
   grid-area: forecast;
   background-color: $secondary-color;
