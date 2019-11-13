@@ -7,6 +7,10 @@ $secondary-accent: #a6b1e1;
   transition: all 0.5s ease-out;
 }
 
+@mixin easeIn {
+  transition: all 0.5s ease-in;
+}
+
 @mixin mediaSm {
   @media screen and (max-width: 500px) {
     @content;

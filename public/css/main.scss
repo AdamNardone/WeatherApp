@@ -31,12 +31,6 @@ body {
   display: flex;
   flex-direction: column;
 
-  .darksky {
-    .darksky-logo {
-      float: right;
-    }
-  }
-
   .sub-header {
     display: flex;
     justify-content: center;
@@ -206,6 +200,15 @@ body {
 
     .detail-section {
       margin: 10px;
+    }
+  }
+
+  .darksky {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    .darksky-logo {
+      float: right;
     }
   }
 }

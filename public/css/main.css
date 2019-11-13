@@ -38,10 +38,6 @@ body {
           flex-direction: column;
 }
 
-.header-container .darksky .darksky-logo {
-  float: right;
-}
-
 .header-container .sub-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -231,6 +227,16 @@ body {
 
 .forecast-container .card .detail-section {
   margin: 10px;
+}
+
+.forecast-container .darksky {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.forecast-container .darksky .darksky-logo {
+  float: right;
 }
 
 @media screen and (max-width: 500px) {
