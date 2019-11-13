@@ -155,24 +155,24 @@ body {
         margin-top: 100px;
         margin-left: 50px;
       }
-    }
-  }
 
-  .hourly-wrapper {
-    height: 400px;
-    width: 600px;
-    overflow: hidden;
+      .hourly-wrapper {
+        height: 400px;
+        width: 600px;
+        overflow: hidden;
 
-    .hourly-slide {
-      width: 2400px;
+        .hourly-slide {
+          width: 2400px;
 
-      .hour {
-        float: left;
-        text-align: center;
-        width: 100px;
+          .hour {
+            float: left;
+            text-align: center;
+            width: 100px;
 
-        .value {
-          margin: 16px 0px;
+            .value {
+              margin: 16px 0px;
+            }
+          }
         }
       }
     }

@@ -177,23 +177,23 @@ body {
   margin-left: 50px;
 }
 
-.forecast-container .hourly-wrapper {
+.forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper {
   height: 400px;
   width: 600px;
   overflow: hidden;
 }
 
-.forecast-container .hourly-wrapper .hourly-slide {
+.forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide {
   width: 2400px;
 }
 
-.forecast-container .hourly-wrapper .hourly-slide .hour {
+.forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour {
   float: left;
   text-align: center;
   width: 100px;
 }
 
-.forecast-container .hourly-wrapper .hourly-slide .hour .value {
+.forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour .value {
   margin: 16px 0px;
 }
 
@@ -257,6 +257,73 @@ body {
   }
   .header-container .general-information .status {
     font-size: 2rem;
+  }
+  .forecast-container .current-day-data-wrapper {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .forecast-container .current-day-data-wrapper > h1 {
+    font-size: 1rem;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper {
+    overflow-y: scroll;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .side-bar {
+    display: none;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper #prev-btn {
+    display: none;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper #next-btn {
+    display: none;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper {
+    width: 100%;
+    overflow: visible;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide {
+    width: 100%;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto auto;
+        grid-template-columns: auto auto auto;
+        grid-template-areas: "header icon info";
+    text-align: left;
+    width: 280px;
+    margin: 10px;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour h2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: header;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour .time-stamp {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: header;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour .icon-container {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: icon;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour .value {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: info;
+    margin: 0;
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour #Temp:before {
+    content: "Temp: ";
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour #Apparent:before {
+    content: "Feels Like: ";
+  }
+  .forecast-container .current-day-data-wrapper .btn-wrapper .hourly-wrapper .hourly-slide .hour #POP:before {
+    content: "POP: ";
   }
 }
 /*# sourceMappingURL=main.css.map */
