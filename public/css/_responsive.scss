@@ -1,0 +1,54 @@
+@include mediaXl {
+}
+
+//Desktops
+@include mediaLg {
+}
+
+//tablets
+@include mediaMd {
+}
+
+//phones
+@include mediaSm {
+  .header-container {
+    .sub-header {
+      .location {
+        font-size: 1rem;
+      }
+
+      .city-search-container {
+        .search-bar {
+          input {
+            width: 150px;
+            padding: 10px;
+          }
+          button {
+            width: 100px;
+            padding: 10px;
+          }
+        }
+      }
+    }
+
+    .nav-container {
+      #hourly-btn {
+        width: 100px;
+        padding: 10px;
+        font-size: 1em;
+      }
+
+      #daily-btn {
+        width: 100px;
+        padding: 10px;
+        font-size: 1em;
+      }
+    }
+
+    .general-information {
+      .status {
+        font-size: 2rem;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-document.getElementById("todays-forecast").style.display = "none";
 document.getElementById("daily-forecast").style.display = "none";
+document.querySelector(".forecast-container").style.display = "none";
 
 document
   .getElementById("search-term")
@@ -32,8 +32,7 @@ document
           callbackFn(data);
         });
 
-      document.getElementById("todays-forecast").style.display = "grid";
-      document.getElementById("daily-forecast").style.display = "flex";
+      document.querySelector(".forecast-container").style.display = "inline";
     }
   });
 
@@ -73,14 +72,6 @@ const temperatureElement = document.querySelectorAll("[data-temperature]");
 const precipitationElement = document.querySelectorAll("[data-precipitation]");
 const windElement = document.querySelectorAll("[data-wind]");
 
-const CurrentDayTemperatureElement = document.querySelector(
-  "[current-day-data-temperature]"
-);
-const CurrentDayPrecipitationElement = document.querySelector(
-  "[current-day-data-precipitation]"
-);
-const CurrentDayWindElement = document.querySelector("[current-day-data-wind]");
-
 const hourlyTemperatureElement = document.querySelectorAll(
   "[hour-data-temperature]"
 );
@@ -96,24 +87,17 @@ function setWeatherData(data, place) {
   console.log(data);
   locationElement.textContent = place;
   statusElement.textContent = data.daily.data[0].summary;
-  icon.set(`icon-current`, data.currently.icon);
-
-  CurrentDayTemperatureElement.textContent = data.currently.temperature;
-  CurrentDayPrecipitationElement.textContent = `${Math.round(
-    data.currently.precipProbability * 100
-  )}%`;
-  CurrentDayWindElement.textContent = data.currently.windSpeed;
 
   //daily weather data
   for (var i = 0; i < 7; i++) {
-    icon.set(`icon${i + 1}`, data.daily.data[i + 1].icon);
+    icon.set(`icon${i}`, data.daily.data[i].icon);
     icon.play();
 
-    temperatureElement[i].textContent = data.daily.data[i + 1].temperatureHigh;
+    temperatureElement[i].textContent = data.daily.data[i].temperatureHigh;
     precipitationElement[i].textContent = `${Math.round(
-      data.daily.data[i + 1].precipProbability * 100
+      data.daily.data[i].precipProbability * 100
     )}%`;
-    windElement[i].textContent = data.daily.data[i + 1].windSpeed;
+    windElement[i].textContent = data.daily.data[i].windSpeed;
   }
 
   //hourly weather data
@@ -198,7 +182,7 @@ function setSlide() {
   const nextBtn = document.getElementById("next-btn");
 
   let counter = 0;
-  const size = document.querySelector(".hourly-wrapper").clientWidth;
+  const size = 600;
 
   prevBtn.addEventListener("click", () => {
     if (counter <= 0) return;
@@ -218,3 +202,16 @@ function setSlide() {
     console.log(size);
   });
 }
+
+const hourlyBtn = document.getElementById("hourly-btn");
+const dailyBtn = document.getElementById("daily-btn");
+
+hourlyBtn.addEventListener("click", () => {
+  document.getElementById("todays-forecast").style.display = "block";
+  document.getElementById("daily-forecast").style.display = "none";
+});
+
+dailyBtn.addEventListener("click", () => {
+  document.getElementById("daily-forecast").style.display = "flex";
+  document.getElementById("todays-forecast").style.display = "none";
+});

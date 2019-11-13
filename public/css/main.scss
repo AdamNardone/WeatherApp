@@ -1,135 +1,212 @@
 @import "config";
 
 body {
-  background: white;
   height: 100vh;
   margin: 0;
   padding: 0;
-  display: grid;
-  row-gap: 20px;
-  column-gap: 20px;
-  grid-template-columns: 1% 40% auto 1%;
-  grid-template-rows: 75px 500px auto 5%;
-  grid-template-areas:
-    "header header header header"
-    "margin-left search weather margin-right"
-    "margin-left forecast forecast margin-right"
-    "margin-bottom margin-bottom margin-bottom margin-bottom";
+  font-family: "Montserrat", sans-serif;
+  background-color: $secondary-accent;
 }
 
-.darksky {
-  grid-area: header;
-  background-color: $secondary-color;
-
-  .darksky-logo {
-    float: right;
-  }
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
 }
 
-.current-day-content {
-  grid-area: search;
+.header-container {
+  color: white;
   background-color: $secondary-color;
   display: flex;
   flex-direction: column;
 
-  .general-information {
-    margin: 25px;
-
-    .status {
-      font-size: 3rem;
-      font-weight: bold;
+  .darksky {
+    .darksky-logo {
+      float: right;
     }
+  }
+
+  .sub-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     .location {
       font-size: 2rem;
       font-weight: normal;
       margin-top: 10px;
-    }
-  }
-
-  .city-search-container {
-    margin: 25px;
-  }
-}
-
-.current-day-data-wrapper {
-  background-color: $secondary-color;
-  grid-area: weather;
-  justify-content: center;
-
-  > h1 {
-    text-align: center;
-  }
-
-  .btn-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    .side-bar {
-      width: 100px;
-      margin-top: 140px;
+      margin-bottom: 15px;
     }
 
-    #prev-btn {
-      margin-top: 100px;
-      margin-right: 50px;
-    }
-    #next-btn {
-      margin-top: 100px;
-      margin-left: 50px;
-    }
+    .city-search-container {
+      text-align: center;
 
-    .hourly-wrapper {
-      height: 400px;
-      width: 600px;
-      overflow: hidden;
-
-      .hourly-slide {
-        width: 2400px;
-
-        .hour {
+      .search-bar {
+        input {
           float: left;
-          text-align: center;
-          width: 100px;
+          background: $secondary-accent;
+          width: 300px;
+          padding: 20px;
+          border: 1px solid $primary-accent;
+          border-right: none;
+          color: white;
+          font-size: 1em;
+        }
 
-          .value {
-            margin: 16px 0px;
-          }
+        button {
+          float: left;
+          width: 125px;
+          padding: 20px;
+          background: $primary-color;
+          color: white;
+          font-size: 1em;
+          border: 1px solid $primary-accent;
+          border-left: none;
+          cursor: pointer;
         }
       }
     }
   }
-}
 
-.card-wrapper {
-  grid-area: forecast;
-  background-color: $secondary-color;
-  justify-content: space-around;
-  margin-bottom: 15px;
-}
-
-.card {
-  display: grid;
-  width: 200px;
-  margin-bottom: 15px;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 75px auto;
-  grid-template-areas:
-    "header header"
-    "icon detail";
-
-  > h2 {
-    grid-area: header;
+  .general-information {
     text-align: center;
+
+    .status {
+      font-size: 3rem;
+      font-weight: bold;
+    }
   }
 
-  .icon-container {
-    grid-area: icon;
+  .nav-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+    #hourly-btn {
+      margin-right: 0;
+      width: 200px;
+      padding: 20px;
+      background: $primary-color;
+      color: white;
+      font-size: 2em;
+      border: 1px solid $primary-accent;
+      border-right: 0.5px;
+      cursor: pointer;
+    }
+
+    #daily-btn {
+      margin-left: 0;
+      width: 200px;
+      padding: 20px;
+      background: $primary-color;
+      color: white;
+      font-size: 2em;
+      border-left: 0.5px;
+      border: 1px solid $primary-accent;
+      cursor: pointer;
+    }
+  }
+}
+
+.forecast-container {
+  .current-day-data-wrapper {
+    justify-content: center;
+    background-color: $secondary-color;
+    color: white;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    > h1 {
+      text-align: center;
+      background-color: $primary-color;
+      margin-top: 0;
+      padding: 10px;
+    }
+
+    .btn-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .side-bar {
+        width: 100px;
+        margin-top: 140px;
+      }
+
+      #prev-btn {
+        margin-top: 100px;
+        margin-right: 50px;
+      }
+      #next-btn {
+        margin-top: 100px;
+        margin-left: 50px;
+      }
+    }
   }
 
-  .detail-section {
-    grid-area: detail;
+  .hourly-wrapper {
+    height: 400px;
+    width: 600px;
+    overflow: hidden;
+
+    .hourly-slide {
+      width: 2400px;
+
+      .hour {
+        float: left;
+        text-align: center;
+        width: 100px;
+
+        .value {
+          margin: 16px 0px;
+        }
+      }
+    }
+  }
+
+  .card-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    margin-top: 20px;
+  }
+
+  .card {
+    background-color: $secondary-color;
+    width: 200px;
+    margin: 1%;
+
+    > h2 {
+      margin: 0;
+      padding: 5px;
+      background-color: $primary-color;
+      text-align: center;
+    }
+
+    .icon-container {
+      text-align: center;
+      background-color: $primary-accent;
+      margin: 10px;
+    }
+
+    .detail-section {
+      margin: 10px;
+    }
   }
 }
 
